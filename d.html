@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiệp Mời Tốt Nghiệp Quang Duy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('https://media.kenhtuyensinh.vn/images/cms/2022/12/1920x1080hoc-phi-dai-hoc-van-lang-2022-2023.jpg') no-repeat center/cover;
+      overflow: hidden;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(3px);
+      z-index: 0;
+    }
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 160px;
+      z-index: 3;
+      filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.6));
+    }
+    /* Card glass 3D */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 470px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 25px;
+      padding: 35px 25px;
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      animation: zoomIn 1s ease forwards;
+      transform-style: preserve-3d;
+      transition: transform 0.5s ease;
+    }
+    .card:hover {
+      transform: rotateY(10deg) rotateX(5deg) scale(1.02);
+    }
+    /* Gradient động */
+    .card h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 46px;
+      background: linear-gradient(270deg, #ff6f61, #ffcc70, #6a5acd);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 6s ease infinite;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    }
+    @keyframes gradientMove {
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    /* Typing animation */
+    .typing {
+      font-size: 20px;
+      color: #fff;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 3s steps(40,end) forwards, blink 0.8s infinite;
+      margin: 10px 0 20px;
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%,100%{border-color:transparent}
+      50%{border-color:white}
+    }
+    .details {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #f1f1f1;
+    }
+    .details p { margin-bottom: 8px; }
+
+    .btns {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 25px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-confirm {
+      background: linear-gradient(45deg,#ff6f61,#ffcc70);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(255,111,97,0.7);
+    }
+    .btn-confirm:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,111,97,0.9);
+    }
+    .btn-share {
+      background: rgba(255,255,255,0.3);
+      color: #fff;
+      border: 1px solid #fff;
+    }
+    .btn-share:hover {
+      background: rgba(255,255,255,0.5);
+    }
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: fall linear forwards;
+      pointer-events: none;
+    }
+    .confetti.ribbon {
+      border-radius: 0;
+      width: 12px;
+      height: 4px;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    @keyframes zoomIn {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    /* Music button */
+    .music-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+      z-index: 5;
+    }
+    .music-btn:hover {
+      background: rgba(255,255,255,0.4);
+    }
+    @media (max-width: 480px) {
+      .card {
+        width: 90%;
+        padding: 20px;
+      }
+      .card h1 {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Logo_VLU_2022.png" alt="Logo Văn Lang">
+  
+  <div class="card">
+    <h1>Thiệp Mời</h1>
+    <div class="typing">Chúc mừng tốt nghiệp Huỳnh Quang Duy!</div>
+    <p style="color:#fff;font-size:18px;">Kính mời anh chị đến dự lễ tốt nghiệp</p>
+    <div class="details">
+      <p><b>Thời gian:</b> 13h00, ngày 14/08/2025</p>
+      <p><b>Địa điểm:</b> Hội trường Trịnh Công Sơn - CS3 Đại học Văn Lang</p>
+    </div>
+    <div class="btns">
+      <button class="btn-confirm" onclick="alert('Hẹn gặp anh chị tại buổi lễ nhé!')">Xác nhận</button>
+      <button class="btn-share" onclick="shareLink()">Chia sẻ</button>
+    </div>
+  </div>
+
+  <!-- Nút điều khiển nhạc -->
+  <button class="music-btn" onclick="toggleMusic()">🔊 Nhạc</button>
+  <audio id="bg-music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/08/03/audio_207fa32df1.mp3?filename=happy-day-115997.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Confetti dạng hạt + ribbon
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      if (Math.random() > 0.5) confetti.classList.add('ribbon');
+      confetti.style.left = Math.random() * window.innerWidth + 'px';
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confetti.style.width = confetti.classList.contains('ribbon') ? '12px' : (Math.random()*8+5)+'px';
+      confetti.style.height = confetti.classList.contains('ribbon') ? '4px' : confetti.style.width;
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 5000);
+    }
+    setInterval(createConfetti, 120);
+
+    // Chia sẻ link
+    function shareLink() {
+      const link = window.location.href;
+      if (navigator.share) {
+        navigator.share({
+          title: 'Thiệp mời tốt nghiệp Quang Duy',
+          text: 'Mời anh chị đến dự lễ tốt nghiệp của em!',
+          url: link
+        });
+      } else {
+        navigator.clipboard.writeText(link).then(() => {
+          alert("Link đã được copy! Gửi cho bạn bè nhé!");
+        });
+      }
+    }
+
+    // Bật/tắt nhạc
+    const music = document.getElementById('bg-music');
+    function toggleMusic() {
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+  </script>
+</body>
+</html>
